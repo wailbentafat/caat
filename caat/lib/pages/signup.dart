@@ -34,31 +34,49 @@ class _SignupState extends State<Signup> {
                 ),
               ),
             ),
-           
-            const Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child: Text(
-                "Email",
-                
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 8, 51, 116),
-                  fontStyle: FontStyle.normal,
-                  
-                ),
-              ),
+            
+            Container(
+              alignment: AlignmentDirectional.centerStart
+              ,child: const Padding(
+                padding: EdgeInsets.only(left: 17.0,bottom: 6)  ,
+                child: Text(
+                  "Email",
+                  style: TextStyle(fontSize: 16, color: Colors.black87 ,fontWeight: FontWeight.bold),
+                )
             ),
-            const SizedBox(height: 5), 
+            ),
+            
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              padding: EdgeInsets.symmetric(horizontal: 18.0),
               child: TextField(
+                
                 keyboardType: TextInputType.emailAddress,
+                enableSuggestions: true,
+                autocorrect: true,
+                autofocus: true,
                 decoration: InputDecoration(
-                  labelText: 'Email',
-                  border: OutlineInputBorder(),
+                  
+                  enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                   borderSide:BorderSide(
+                    color: Colors.grey,
+                    width: 0.3) 
+                    ),
+                    focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10.0)), borderSide: 
+                    BorderSide(color: Color.fromARGB(255, 128, 124, 124), width: 0.3),
+                    gapPadding: 7.0,
+                    
+                   
+                    
                 ),
+                
+                hintText: 'Entrez votre email',
+                hintStyle: TextStyle(color: Colors.grey),
+                isDense: true,
+
+
               ),
+              
+            ),
             ),
             const SizedBox(height: 20), 
             const Padding(
