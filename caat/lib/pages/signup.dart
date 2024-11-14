@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:caat/pages/signin.dart';
 import 'package:flutter/material.dart';
 import '../controllers/auth/signin.dart';
 
@@ -11,7 +12,7 @@ class Signup extends StatefulWidget {
 class _SignupState extends State<Signup> {
   final FormControllers formControllers = FormControllers();
   bool isloading = false;
-  Map<String,String>?userinfo;
+  Map<String, String>? userinfo;
 
   @override
   Widget build(BuildContext context) {
@@ -168,7 +169,10 @@ class _SignupState extends State<Signup> {
               padding: EdgeInsets.only(left: 3),
               child: GestureDetector(
                 onTap: () {
-                  print("heyy");
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SignUpPage()));
                 },
                 child: Text(
                   "Creet un compte",
@@ -185,32 +189,28 @@ class _SignupState extends State<Signup> {
       )),
     );
   }
+
   void _handleSignIn() async {
-  setState(() {
-    isloading = true;
-  });
-
-  try {
-    userinfo = await formControllers.signin(
-      email: formControllers.emailcontrol.text,
-      password: formControllers.passwcontrol.text,
-    );
-
-    print('User info: $userinfo');
-
-  } catch (e) {
-    
-    print('Error: ${e.toString()}');
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Error: ${e.toString()}')), 
-    );
-  } finally {
-    
     setState(() {
-      isloading = false; 
+      isloading = true;
     });
+
+    try {
+      userinfo = await formControllers.signin(
+        email: formControllers.emailcontrol.text,
+        password: formControllers.passwcontrol.text,
+      );
+
+      print('User info: $userinfo');
+    } catch (e) {
+      print('Error: ${e.toString()}');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error: ${e.toString()}')),
+      );
+    } finally {
+      setState(() {
+        isloading = false;
+      });
+    }
   }
-}
-
-
 }
