@@ -45,7 +45,8 @@ class FormController {
       'nom': nom,
     };
     String jsonRequest = jsonEncode(Usersi);
-    Future.delayed(Duration(seconds: 3));
+    print(jsonRequest);
+    await Future.delayed(Duration(seconds: 3));
     return Usersi;
   }
 }
