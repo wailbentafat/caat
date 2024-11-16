@@ -24,29 +24,15 @@ class _LayoutState extends State<Layout> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        flexibleSpace: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 23),
-                  child: Image.asset('assets/images/caat.png' , height: 40, width: 80,),
-                )
-              ],
-            ),
-            
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Padding(padding: EdgeInsets.all(1.0),
-                child: Text('CAAT',style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold),),)
-              ],
-            ),
-
-          ],
-        ),
+       leading: Padding(padding: EdgeInsets.all(8.0),
+       child: Image.asset('assets/images/logo.png'),
+       
+       ),
+       actions: [
+        IconButton(onPressed: (){}, icon: Icon(Icons.notifications),color: Colors.black,),
+        
+       ],
+        
       ),
       body: pages[curentpageind],
       bottomNavigationBar: NavigationBar(
