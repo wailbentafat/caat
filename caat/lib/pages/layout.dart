@@ -12,7 +12,8 @@ class Layout extends StatefulWidget {
 }
 
 class _LayoutState extends State<Layout> {
-  int curentpageind = 0;
+  int currentPageIndex = 0;
+
   final List<Widget> pages = [
     const Home(),
     const service(),
@@ -23,40 +24,93 @@ class _LayoutState extends State<Layout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-       leading: Padding(padding: EdgeInsets.all(8.0),
-       child: Image.asset('assets/images/logo.png'),
-       
-       ),
-       actions: [
-        IconButton(onPressed: (){}, icon: Icon(Icons.notifications),color: Colors.black,),
-        
-       ],
-        
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(80), 
+        child: AppBar(
+          backgroundColor: Colors.white,
+          automaticallyImplyLeading: false,
+          flexibleSpace: Padding(
+            padding: const EdgeInsets.all(15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: Image.asset(
+                    'assets/images/caat.png',
+                    width: 80,
+                    height: 70, 
+                    fit: BoxFit.contain,
+                  ),
+                ),
+                Row(
+                  children: [
+                    IconButton(
+                      icon: Icon(Icons.notifications_none_outlined, color: Colors.blue,size: 30,),
+                      onPressed: () {
+                      },
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.person_2_outlined, color: Colors.blue,size: 30,),
+                      onPressed: () {
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
-      body: pages[curentpageind],
+      body: pages[currentPageIndex],
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
           setState(() {
-            curentpageind = index;
+            currentPageIndex = index;
           });
         },
         elevation: 10,
-        height: MediaQuery.of(context).size.height * 0.08,
+        height: MediaQuery.of(context).size.height * 0.1,
         backgroundColor: Colors.white,
         animationDuration: const Duration(milliseconds: 300),
-        destinations:  [
+        destinations: [
           NavigationDestination(
-            icon: Icon(Icons.home,size: 30,color: curentpageind==0?Colors.blue:Colors.grey,),
+            icon: Icon(
+              Icons.home,
+              size: 40,
+              color: currentPageIndex == 0 ? Colors.blue : Colors.grey,
+            ),
             label: 'Home',
           ),
-          NavigationDestination(icon: Icon(Icons.search,size: 30,color: curentpageind==1?Colors.blue:Colors.grey), label: 'Services'),
           NavigationDestination(
-              icon: Icon(Icons.settings,size: 30,color: curentpageind==2?Colors.blue:Colors.grey ,), label: 'Inscription',),
+            icon: Icon(
+              Icons.search,
+              size: 40,
+              color: currentPageIndex == 1 ? Colors.blue : Colors.grey,
+            ),
+            label: 'Services',
+          ),
           NavigationDestination(
-              icon: Icon(Icons.access_alarm_rounded,size: 30,color: curentpageind==3?Colors.blue:Colors.grey), label: 'Demande')
-        ],
-        selectedIndex: curentpageind,
+            icon: Icon(
+              Icons.settings,
+              size: 40,
+              color: currentPageIndex == 2 ? Colors.blue : Colors.grey,
+            ),
+            label: 'Inscription',
+          ),
+          NavigationDestination(
+            icon: Icon(
+              Icons.access_alarm_rounded,
+              size: 40,
+              color: currentPageIndex == 3 ? Colors.blue : Colors.grey,
+            ),
+            label: 'Demande',
+          ),
+
+        ], 
+        selectedIndex: currentPageIndex,
+        
+         
       ),
     );
   }
