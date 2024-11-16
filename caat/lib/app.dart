@@ -1,3 +1,4 @@
+import 'package:caat/pages/layout.dart';
 import 'package:caat/pages/signin.dart';
 import 'package:flutter/material.dart';
 import './pages/signup.dart';
@@ -11,7 +12,7 @@ class Myapp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  const SignUpPage(),
+      home:  const Layout(),
     );
   }
 }
