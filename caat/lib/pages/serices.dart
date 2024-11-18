@@ -11,6 +11,12 @@ class service extends StatefulWidget {
 class _serviceState extends State<service> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child:Column(
+        children: [
+
+        ],
+      )
+    );
   }
 }
