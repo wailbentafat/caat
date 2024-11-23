@@ -19,16 +19,18 @@ class CustomInputField extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 18.0),
-          child: Material(  
+          child: Material(
             child: TextField(
               controller: controller,
               keyboardType: keyboardType,
-              obscureText: hint.toLowerCase().contains('password'), 
-              enableSuggestions: false,  
-              autocorrect: false, 
-              autofocus: false, 
+              obscureText: hint.toLowerCase().contains('password'),
+              enableSuggestions: false,
+              autocorrect: false,
+              autofocus: false,
+              
               decoration: InputDecoration(
-                contentPadding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
                 hintText: hint,
                 hintStyle: TextStyle(color: Colors.grey[600]),
                 enabledBorder: OutlineInputBorder(
@@ -39,7 +41,7 @@ class CustomInputField extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   borderSide: BorderSide(color: Colors.blueAccent, width: 0.8),
                 ),
-                isDense: true,  // Make the input field's padding more compact
+                isDense: true, // Make the input field's padding more compact
                 errorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   borderSide: BorderSide(color: Colors.red, width: 0.6),

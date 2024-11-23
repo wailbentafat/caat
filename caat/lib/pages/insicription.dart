@@ -31,37 +31,43 @@ class _inscriptionState extends State<inscription> {
         contractdate: DateTime(2021, 8, 20),
         DateEnd: DateTime(2024, 8, 20),
       ),
-      
     ];
     return Scaffold(
-      body: Column(
-        children: [
-          Padding(padding: const EdgeInsets.only(left:16.0),
-          child: Row(
-            children: [
-              Text("Inscriptions",
-              style: TextStyle(
-                fontSize: 24,
-                color: Color.fromARGB(255, 27, 89, 197),
-                fontWeight: FontWeight.w800,
-                wordSpacing: 0.3,
-              ),
-              ),
-              ElevatedButton(onPressed: (){}, 
-              child: Row(
-                children: [
-                  Icon(Icons.filter_1_outlined),
-                  Text("Filter"),
-                ],
-              ))
-            ],
+      body: Column(children: [
+        Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: Row(
+              children: [
+                Text(
+                  "Inscriptions",
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: Color.fromARGB(255, 27, 89, 197),
+                    fontWeight: FontWeight.w800,
+                    wordSpacing: 0.3,
+                  ),
+                ),
+                ElevatedButton(
+                    onPressed: () {},
+                    child: Row(
+                      children: [
+                        Icon(Icons.filter_1_outlined),
+                        Text("Filter"),
+                      ],
+                    )
+                    ),
+                ListView.builder(
+                  itemCount: inscriptionsList.length,
+                  itemBuilder: (BuildContext context, int index) {
 
-          )
-          )
-        ]      
-        
-
-      ),
+                    Cardele cardele = Cardele(insc: inscriptionsList[index]);
+                    return cardele.build(context);
+                    
+                  },
+                ),
+              ],
+            ))
+      ]),
     );
   }
 }
