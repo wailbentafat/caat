@@ -31,7 +31,7 @@ class _HomeState extends State<Home> {
                 onPressed: () async {
                   final selected = await  showMenu  <String>(
                     clipBehavior: Clip.hardEdge,
-                    position: RelativeRect.,
+                    position: RelativeRect.fromDirectional(textDirection: TextDirection.ltr, start: BorderSide.strokeAlignCenter, top:BorderSide.strokeAlignCenter, end: BorderSide.strokeAlignCenter, bottom: BorderSide.strokeAlignCenter),
                     context: context,
                     items: filteroption.map((String value) {
                       return PopupMenuItem<String>(
