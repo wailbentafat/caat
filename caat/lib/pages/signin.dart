@@ -10,7 +10,7 @@ class SignUpPage extends StatelessWidget {
     return const Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(
-            horizontal: 16.0), // Added more padding for a balanced design
+            horizontal: 16.0), 
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -104,7 +104,7 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ),
         ),
-        // Input field
+        
         CustomInputField(
           controller: controller,
           hint: label,

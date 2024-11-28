@@ -1,3 +1,4 @@
+
 import 'package:caat/pages/insicription.dart';
 import 'package:flutter/material.dart';
 import 'package:caat/models/inscription.dart';
@@ -15,7 +16,8 @@ const Cardele({Key? key, required  this.insc}) : super(key: key);
       semanticContainer: true,
       child: Padding(padding: const EdgeInsets.all(8.0),
       child: ElevatedButton(onPressed: (){}, style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.blue)),
-       child: const Text("assign")),
+       child: const Text("assign")
+       ),
 
        
 

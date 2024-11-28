@@ -10,8 +10,6 @@ class inscription extends StatefulWidget {
 }
 
 class _inscriptionState extends State<inscription> {
-  @override
-  Widget build(BuildContext context) {
     List<Inscription> inscriptionsList = [
       Inscription(
         ContractId: 1,
@@ -32,13 +30,16 @@ class _inscriptionState extends State<inscription> {
         DateEnd: DateTime(2024, 8, 20),
       ),
     ];
+  @override
+  Widget build(BuildContext context) {
+   
     return Scaffold(
       body: Column(children: [
         Padding(
             padding: const EdgeInsets.only(left: 16.0),
             child: Row(
               children: [
-                Text(
+                const Text(
                   "Inscriptions",
                   style: TextStyle(
                     fontSize: 24,
@@ -48,20 +49,23 @@ class _inscriptionState extends State<inscription> {
                   ),
                 ),
                 ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                   
+                    },
                     child: Row(
                       children: [
                         Icon(Icons.filter_1_outlined),
                         Text("Filter"),
                       ],
+
                     )
                     ),
                 ListView.builder(
                   itemCount: inscriptionsList.length,
                   itemBuilder: (BuildContext context, int index) {
 
-                    Cardele cardele = Cardele(insc: inscriptionsList[index]);
-                    return cardele.build(context);
+                    Cardele cardele = Cardele(insc: inscriptionsList[index],);
+                    return cardele.build(context );
                     
                   },
                 ),

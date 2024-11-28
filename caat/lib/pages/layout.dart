@@ -1,7 +1,8 @@
+import 'package:caat/pages/home.dart';
 import 'package:flutter/material.dart';
 import '../pages/insicription.dart';
 import '../pages/demandes.dart';
-import '../pages/home.dart';
+
 import '../pages/serices.dart';
 
 class Layout extends StatefulWidget {
@@ -15,7 +16,7 @@ class _LayoutState extends State<Layout> {
   int currentPageIndex = 0;
 
   final List<Widget> pages = [
-    const Home(),
+     const Home(),
     const service(),
     const inscription(),
     const demandepa(),
@@ -69,7 +70,7 @@ class _LayoutState extends State<Layout> {
             currentPageIndex = index;
           });
         },
-        elevation: 10,
+        elevation: 5,
         height: MediaQuery.of(context).size.height * 0.1,
         backgroundColor: Colors.white,
         animationDuration: const Duration(milliseconds: 300),
@@ -97,6 +98,8 @@ class _LayoutState extends State<Layout> {
               color: currentPageIndex == 2 ? Colors.blue : Colors.grey,
             ),
             label: 'Inscription',
+    
+           
           ),
           NavigationDestination(
             icon: Icon(
